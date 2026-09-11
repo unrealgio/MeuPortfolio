@@ -20,6 +20,8 @@ import {
 } from "react-icons/si";
 import { useLanguage } from "../context/LanguageContext";
 
+
+// EXPERIÊNCIA PROFISSIONAL
 const experiences = [
   {
     period: "Jan 2024 - Dez 2025",
@@ -35,48 +37,49 @@ const experiences = [
   },
 ];
 
+// CERTIFICADOS
+
 const certificates = [
   {
     title: "Ambientes Computacionais e Conectividade",
     issuer: "Universidade Potiguar + Cisco",
-    duration: "160 horas · concluído em dezembro de 2025",
+    duration: "160 horas · concluído em Dezembro de 2025",
     file: "Ambientes Computacionais e Conectividade.pdf",
   },
   {
     title: "Interação Humano Computador e UX",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em julho de 2026",
+    duration: "160 horas · concluído em Julho de 2026",
     file: "Interação Humano Computador e UX.pdf",
   },
   {
     title: "JavaScript Essentials 1",
     issuer: "Cisco Networking Academy",
-    duration:
-      "concluído em 30 de setembro de 2024 · carga horária não informada",
+    duration: "60 horas · concluído em Setembro de 2024",
     file: "JavaScript_Essentials_1_Badge20240930-7-jol5ek (2).pdf",
   },
   {
     title: "Matemática Computacional Aplicada",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em julho de 2026",
+    duration: "160 horas · concluído em Julho de 2026",
     file: "Matemática Computacional Aplicada.pdf",
   },
   {
     title: "Modelagem de Software",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em julho de 2025",
+    duration: "160 horas · concluído em Julho de 2025",
     file: "Modelagem de Software.pdf",
   },
   {
     title: "Programação de Soluções Computacionais",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em julho de 2025",
+    duration: "160 horas · concluído em Julho de 2025",
     file: "Programação de Soluções Computacionais.pdf",
   },
   {
     title: "Sistemas Computacionais e Segurança",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em dezembro de 2025",
+    duration: "160 horas · concluído em Dezembro de 2025",
     file: "Sistemas Computacionais e Segurança.pdf",
   },
 ];
@@ -88,33 +91,45 @@ const certificatePages = certificates.reduce((pages, certificate, index) => {
   return pages;
 }, []);
 
+// TRADUÇÃO DOS CERTIFICADOS
 function certificateDuration(duration, isEnglish) {
   if (!isEnglish) return duration;
 
-  if (duration.includes("carga horária não informada")) {
-    return "Completed on September 30, 2024 · duration not specified";
-  }
+  const monthTranslations = {
+    Janeiro: "January",
+    Fevereiro: "February",
+    Março: "March",
+    Abril: "April",
+    Maio: "May",
+    Junho: "June",
+    Julho: "July",
+    Agosto: "August",
+    Setembro: "September",
+    Outubro: "October",
+    Novembro: "November",
+    Dezembro: "December",
+  };
 
-  return duration
-    .replace("horas · concluído em", "hours · completed in")
-    .replace("dezembro", "December")
-    .replace("julho", "July");
+  return duration.replace(
+    /horas · concluído em|Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro/g,
+    (text) => monthTranslations[text] || "hours · completed in",
+  );
 }
 
 const certificateTitlesInEnglish = {
-  "Ambientes Computacionais e Conectividade":
-    "Computational Environments and Connectivity",
+  "Ambientes Computacionais e Conectividade": "Computational Environments and Connectivity",
   "Interação Humano Computador e UX": "Human Computer Interaction and UX",
   "Matemática Computacional Aplicada": "Applied Computational Mathematics",
   "Modelagem de Software": "Software Modeling",
-  "Programação de Soluções Computacionais":
-    "Computational Solutions Programming",
+  "Programação de Soluções Computacionais": "Computational Solutions Programming",
   "Sistemas Computacionais e Segurança": "Computer Systems and Security",
 };
 
 function certificateTitle(title, isEnglish) {
   return isEnglish ? certificateTitlesInEnglish[title] || title : title;
 }
+
+// CONHECIMENTOS TÉCNICOS
 
 const technologyGroups = [
   {
@@ -127,7 +142,7 @@ const technologyGroups = [
     ],
   },
   {
-    label: "Frameworks & Runtime",
+    label: "Frameworks",
     technologies: [
       { name: "React", icon: FaReact },
       { name: "Next.js", icon: SiNextdotjs },
@@ -137,7 +152,7 @@ const technologyGroups = [
     ],
   },
   {
-    label: "Infra, DB e Tools",
+    label: "Infra, DB & Tools",
     technologies: [
       { name: "PostgreSQL", icon: SiPostgresql },
       { name: "MongoDB", icon: SiMongodb },
@@ -222,7 +237,7 @@ function About() {
         >
           <img
             className="about-profile-image"
-            src="/img/Gio%20Lombroso.jpeg"
+            src="/img/Gio.jpeg"
             alt="Giovanni Felipe"
           />
           <h3>Giovanni Felipe</h3>
@@ -476,7 +491,7 @@ function About() {
                         {isEnglish
                           ? [
                               "Languages",
-                              "Frameworks & Runtime",
+                              "Frameworks",
                               "Infra, DB & Tools",
                             ][groupIndex]
                           : label}

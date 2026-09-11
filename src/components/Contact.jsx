@@ -15,7 +15,7 @@ function Contact() {
           <p className="section-label">| {isEnglish ? "CONTACT" : "CONTATO"}</p>
           <h2 id="contact-title">
             {isEnglish
-              ? "Let’s build something useful."
+              ? "Let’s build something useful?"
               : "Vamos construir algo útil?"}
           </h2>
           <p className="contact-description">
