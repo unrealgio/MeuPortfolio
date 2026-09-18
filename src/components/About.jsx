@@ -297,8 +297,8 @@ function About() {
             <div className="about-content">
               <p className="about-lead">
                 {isEnglish
-                  ? "I am Giovanni Felipe, a web developer focused on turning ideas into clear, functional and enjoyable digital products."
-                  : "Sou um desenvolvedor focado em transformar ideias em produtos digitais claros, funcionais e agradáveis de usar."}
+                  ? "I am Giovanni Felipe, a web developer focused on turning dreams and ideas into clear, functional and modernized digital products."
+                  : "Sou um desenvolvedor focado em transformar sonhos e ideias em produtos digitais claros, funcionais e modernizados."}
               </p>
               <p className="about-text">
                 {isEnglish

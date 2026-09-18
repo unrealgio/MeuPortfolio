@@ -48,7 +48,13 @@ function Hero() {
 
         <h1>
           {isEnglish ? "Hello, I'm " : "Olá, eu sou "}
-          <span>Giovanni Felipe.</span>
+          <span className="hero-name">
+            <span className="hero-prompt" aria-hidden="true">
+              &gt;{" "}
+            </span>
+            Giovanni Felipe.
+            <span className="hero-cursor" aria-hidden="true" />
+          </span>
         </h1>
 
         <p className="hero-description">
