@@ -6,7 +6,7 @@ const Stack = {
   frontend: ["React", "Next.js", "TailwindCSS"],
   backend: ["Node.js", "Express"],
   database: ["PostgreSQL", "MongoDB", "SQL Server"],
-  tools: ["Git", "Docker", "English"],
+  tools: ["Git", "Docker", "Vite", ],
 };
 
 const socialLinks = [
