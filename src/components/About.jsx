@@ -27,13 +27,14 @@ const experiences = [
     period: "Jan 2024 - Dez 2025",
     role: "Desenvolvedor Web Full Stack",
     description:
-      "Desenvolvimento de aplicações web completas, atuando desde a construção das interfaces até a integração com APIs e bancos de dados.",
+      "Atuei como Desenvolvedor Web Full Stack numa startup, atuando desde a construção das interfaces até a integração com APIs e bancos de dados. Participei de todas as etapas do ciclo de desenvolvimento, desde a concepção até a entrega final."
+
   },
   {
     period: "Jun 2023 - atualmente",
     role: "Desenvolvedor Web Freelancer",
     description:
-      "Criação de soluções digitais sob medida para diferentes necessidades, com foco em interfaces responsivas, usabilidade e entrega de valor.",
+      "Atuo como Desenvolvedor Web Freelancer, desenvolvendo aplicações web completas, desde a criação de interfaces até a integração com APIs e bancos de dados. Trabalho em estreita colaboração com clientes para transformar suas ideias em produtos digitais funcionais e atraentes.",
   },
 ];
 
