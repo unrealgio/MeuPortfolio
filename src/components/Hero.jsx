@@ -1,12 +1,13 @@
 import { ArrowDown, Download } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { useEffect, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
 const Stack = {
   frontend: ["React", "Next.js", "TailwindCSS"],
   backend: ["Node.js", "Express"],
   database: ["PostgreSQL", "MongoDB", "SQL Server"],
-  tools: ["Git", "Docker", "Vite", ],
+  tools: ["Git", "Docker", "Vite"],
 };
 
 const socialLinks = [
@@ -22,8 +23,54 @@ const socialLinks = [
   },
 ];
 
+const heroName = "Giovanni Felipe";
+const heroTypingIntervals = [
+  350, 105, 120, 95, 130, 105, 115, 100, 300, 105, 120, 95, 125, 105,
+];
+
+function renderAnimatedWord(word, startIndex, typedCharacters) {
+  return Array.from(word).map((character, index) => (
+    <span
+      className={`hero-letter ${
+        startIndex + index < typedCharacters ? "hero-letter-visible" : ""
+      }`}
+      key={`${word}-${character}-${index}`}
+      aria-hidden="true"
+    >
+      {character}
+      {typedCharacters === startIndex + index + 1 &&
+        typedCharacters < heroName.length && (
+          <span className="hero-cursor" aria-hidden="true" />
+        )}
+    </span>
+  ));
+}
+
 function Hero() {
   const { isEnglish } = useLanguage();
+  const [typedCharacters, setTypedCharacters] = useState(0);
+
+  useEffect(() => {
+    let timeoutId;
+    let characterIndex = 0;
+
+    const typeNextCharacter = () => {
+      if (characterIndex >= heroName.length) {
+        return;
+      }
+
+      timeoutId = setTimeout(() => {
+        characterIndex += 1;
+        setTypedCharacters(characterIndex);
+        typeNextCharacter();
+      }, heroTypingIntervals[characterIndex]);
+    };
+
+    typeNextCharacter();
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <main className="hero" id="inicio">
       <div className="ambient-background" aria-hidden="true">
@@ -46,14 +93,28 @@ function Hero() {
           {isEnglish ? "WEB DEVELOPER" : "DESENVOLVEDOR WEB"}
         </p>
 
+        <div className="hero-console" aria-hidden="true">
+          <span className="hero-console-path">~/portfolio</span>
+          <span className="hero-console-prompt">$</span>
+          <span className="hero-console-command">giovannifelipedev</span>
+          <span className="hero-console-cursor" />
+        </div>
+
         <h1>
           {isEnglish ? "Hello, I'm " : "Olá, eu sou "}
-          <span className="hero-name">
-            <span className="hero-prompt" aria-hidden="true">
-              &gt;{" "}
+          <span className="hero-name" aria-label={heroName}>
+            <span className="hero-word">
+              {typedCharacters === 0 && (
+                <span className="hero-cursor" aria-hidden="true" />
+              )}
+              {renderAnimatedWord("Giovanni", 0, typedCharacters)}
             </span>
-            Giovanni Felipe.
-            <span className="hero-cursor" aria-hidden="true" />
+            <span className="hero-word">
+              {renderAnimatedWord("Felipe", 8, typedCharacters)}
+              {typedCharacters === heroName.length && (
+                <span className="hero-cursor" aria-hidden="true" />
+              )}
+            </span>
           </span>
         </h1>
 

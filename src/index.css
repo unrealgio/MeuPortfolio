@@ -959,6 +959,34 @@ a {
   letter-spacing: 0.18em;
 }
 
+.hero-console {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  margin-bottom: 1.1rem;
+  color: #8b8b8b;
+  font-family: monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  animation: hero-console-entry 700ms ease-out both;
+}
+
+.hero-console-prompt {
+  color: #26b99a;
+}
+
+.hero-console-command {
+  color: #e67e22;
+}
+
+.hero-console-cursor {
+  width: 0.42rem;
+  height: 1px;
+  background: #26b99a;
+  animation: hero-cursor-blink 900ms steps(1, end) infinite;
+}
+
 .hero h1 {
   max-width: 700px;
   margin: 0;
@@ -976,14 +1004,19 @@ a {
   position: relative;
   display: inline-block;
   color: #e67e22;
-  animation: hero-name-reveal 900ms cubic-bezier(0.22, 1, 0.36, 1) 350ms both;
 }
 
-.hero h1 .hero-prompt {
-  color: #26b99a;
-  font-family: monospace;
-  font-size: 0.56em;
-  vertical-align: 0.2em;
+.hero-word {
+  display: block;
+}
+
+.hero-letter {
+  display: inline-block;
+  opacity: 0;
+}
+
+.hero-letter-visible {
+  animation: hero-letter-typing 100ms ease-out both;
 }
 
 .hero-cursor {
@@ -1243,17 +1276,33 @@ a {
   }
 }
 
-@keyframes hero-name-reveal {
+@keyframes hero-letter-typing {
   from {
     opacity: 0;
-    clip-path: inset(0 100% 0 0);
-    transform: translateX(-0.25em);
+    transform: translateY(0.15em);
   }
 
   to {
     opacity: 1;
-    clip-path: inset(0 0 0 0);
     transform: translateX(0);
+  }
+}
+
+@keyframes hero-console-entry {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-cursor-entry {
+  to {
+    opacity: 1;
   }
 }
 
@@ -1435,6 +1484,14 @@ a {
 
   .meet-link,
   .meet-link svg {
+    animation: none;
+  }
+
+  .hero-letter,
+  .hero-cursor,
+  .hero-console,
+  .hero-console-cursor {
+    opacity: 1;
     animation: none;
   }
 
