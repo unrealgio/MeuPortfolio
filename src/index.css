@@ -1,3 +1,4 @@
+/* BASE, FONTS AND GLOBAL THEME */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 :root {
@@ -29,6 +30,7 @@ a {
   color: inherit;
 }
 
+/* MAIN NAVBAR */
 .navbar {
   position: fixed;
   top: 1.25rem;
@@ -54,17 +56,40 @@ a {
 }
 
 .navbar-links a {
+  position: relative;
   color: #d4d4d4;
   font-size: 0.9rem;
   text-decoration: none;
   transition: color 180ms ease;
 }
 
+.navbar-links a::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.35rem;
+  left: 0;
+  height: 2px;
+  background: #26b99a;
+  content: "";
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
 .navbar-links a:hover,
-.navbar-links a:focus-visible {
+.navbar-links a:focus-visible,
+.navbar-links a.navbar-link-active {
   color: #26b99a;
 }
 
+.navbar-links a.navbar-link-active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* CHANGE LANGUAGE */
 .language-toggle {
   display: inline-flex;
   align-items: center;
@@ -91,6 +116,7 @@ a {
   background: rgba(38, 185, 154, 0.1);
 }
 
+/* MAIN LAYOUT */
 .hero {
   position: relative;
   isolation: isolate;
@@ -119,6 +145,7 @@ a {
   pointer-events: none;
 }
 
+/* ABOUT SECTION */
 .about-section {
   position: relative;
   scroll-margin-top: 5rem;
@@ -135,6 +162,7 @@ a {
   margin-left: auto;
 }
 
+/* SIDE PROFILE AND SCROLLING IN ABOUT SECTION */
 .about-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -225,6 +253,7 @@ a {
   transform: translateY(-50%) scale(1.25);
 }
 
+/* DESCRIPTIONS, EXPERIENCE AND CERTIFICATES */
 .about-main {
   min-width: 0;
   display: grid;
@@ -505,6 +534,7 @@ a {
   text-decoration: underline;
 }
 
+/* TECHS AND MARQUEE */
 .carousel-hint {
   font-family: monospace;
 }
@@ -594,6 +624,7 @@ a {
   transform: scale(1.15);
 }
 
+/* PROJECTS AND CONTACT */
 .projects-section,
 .contact-section {
   padding: clamp(5rem, 10vw, 9rem) clamp(2rem, 6vw, 7rem);
@@ -623,7 +654,7 @@ a {
 }
 
 .projects-intro {
-  max-width: 320px;
+  max-width: 430px;
   margin: 0 0 0.35rem;
   color: #8c8c8c;
   font-size: 0.95rem;
@@ -763,6 +794,7 @@ a {
   transform: translate(0.2rem, -0.2rem);
 }
 
+/* INFO, LOCATION AND MAP */
 .contact-section {
   position: relative;
   isolation: isolate;
@@ -911,6 +943,7 @@ a {
   transform: translateY(-3px);
 }
 
+/* BACKGROUND AND CONTENT HERO SECTION */
 .ambient-background {
   position: absolute;
   z-index: -1;
@@ -1013,10 +1046,21 @@ a {
 .hero-letter {
   display: inline-block;
   opacity: 0;
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-shadow 180ms ease;
 }
 
 .hero-letter-visible {
-  animation: hero-letter-typing 100ms ease-out both;
+  opacity: 1;
+  animation: hero-letter-typing 100ms ease-out;
+}
+
+.hero-letter-visible:hover {
+  color: #26b99a;
+  text-shadow: 0 0 14px rgba(38, 185, 154, 0.65);
+  transform: translateY(-0.12em);
 }
 
 .hero-cursor {
@@ -1045,6 +1089,7 @@ a {
   margin-top: 2rem;
 }
 
+/* CTA */
 .meet-link {
   grid-column: 1 / -1;
   justify-self: center;
@@ -1112,6 +1157,7 @@ a {
   font-weight: 700;
 }
 
+/* BTNS */
 .button {
   display: inline-flex;
   align-items: center;
@@ -1148,6 +1194,7 @@ a {
   border-color: #26b99a;
 }
 
+/* CODE CARD */
 .stack-card {
   position: relative;
   grid-column: 2;
@@ -1241,6 +1288,7 @@ a {
   color: #facc15;
 }
 
+/* ANIMATIONS */
 @keyframes float-card {
   0%,
   100% {
@@ -1339,6 +1387,7 @@ a {
   }
 }
 
+/* RESPONSIVE */
 @media (max-width: 800px) {
   .navbar {
     top: 0.75rem;
@@ -1469,6 +1518,7 @@ a {
   }
 }
 
+/* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

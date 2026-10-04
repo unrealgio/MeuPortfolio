@@ -96,7 +96,7 @@ function Hero() {
         <div className="hero-console" aria-hidden="true">
           <span className="hero-console-path">~/portfolio</span>
           <span className="hero-console-prompt">$</span>
-          <span className="hero-console-command">giovannifelipedev</span>
+          <span className="hero-console-command">whoami</span>
           <span className="hero-console-cursor" />
         </div>
 

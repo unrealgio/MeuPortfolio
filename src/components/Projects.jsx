@@ -79,8 +79,8 @@ function Projects() {
           </div>
           <p className="projects-intro">
             {isEnglish
-              ? "A selection of systems built with product thinking, technical clarity and experiences that work for the people who use them."
-              : "Uma seleção de sistemas desenvolvidos com foco em produto, clareza técnica e experiências que funcionam para quem usa."}
+              ? "A selection of full stack systems created for real academic and professional contexts. Each project combines product thinking, reliable architecture and clear interfaces to turn complex routines into practical digital experiences."
+              : "Uma seleção de sistemas full stack criados para contextos acadêmicos e profissionais reais. Cada projeto combina visão de produto, arquitetura confiável e interfaces claras para transformar rotinas complexas em experiências digitais práticas e eficientes."}
           </p>
         </div>
 
