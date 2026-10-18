@@ -2,6 +2,7 @@ import { ArrowDown, Download } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import HeroBackground from "./HeroBackground";
 
 const Stack = {
   frontend: ["React", "Next.js", "TailwindCSS"],
@@ -74,18 +75,8 @@ function Hero() {
   return (
     <main className="hero" id="inicio">
       <div className="ambient-background" aria-hidden="true">
-        <video
-          className="hero-video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          aria-hidden="true"
-        >
-          <source src="/videos/background.mp4" type="video/mp4" />
-        </video>
-        <div className="hero-video-overlay" />
+        <HeroBackground />
+        <div className="hero-overlay" />
       </div>
 
       <div className="hero-content">
