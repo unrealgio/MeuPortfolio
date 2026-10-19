@@ -63,6 +63,12 @@ const experiences = [
 
 const certificates = [
   {
+    title: "Programador Full Stack",
+    issuer: "Senac RN",
+    duration: "388 horas · concluído em Janeiro de 2025",
+    file: "Programação Fullstack Senac.pdf",
+  },
+  {
     title: "Ambientes Computacionais e Conectividade",
     issuer: "Universidade Potiguar + Cisco",
     duration: "160 horas · concluído em Dezembro de 2025",
@@ -132,13 +138,16 @@ function certificateDuration(duration, isEnglish) {
     Dezembro: "December",
   };
 
-  return duration.replace(
-    /horas · concluído em|Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro/g,
-    (text) => monthTranslations[text] || "hours · completed in",
-  );
+  return duration
+    .replace(" de ", " ")
+    .replace(
+      /horas · concluído em|Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro/g,
+      (text) => monthTranslations[text] || "hours · completed in",
+    );
 }
 
 const certificateTitlesInEnglish = {
+  "Programador Full Stack": "Full Stack Programmer",
   "Ambientes Computacionais e Conectividade":
     "Computational Environments and Connectivity",
   "Interação Humano Computador e UX": "Human Computer Interaction and UX",
