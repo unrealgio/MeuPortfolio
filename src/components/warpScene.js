@@ -14,14 +14,13 @@ import {
 
 const DEPTH = 1000;
 const NEAR = 10;
-const CRUISE_SPEED = 140;
+const CRUISE_SPEED = 100;
 const INTRO_DURATION = 2.4;
 const INTRO_MULTIPLIER = 8;
 const HIGHLIGHT_RATIO = 0.015;
 const REDUCED_MOTION_TRAVEL = 420;
 
-// Each star is a quad drawn with instancing; the whole motion happens on the GPU.
-// position.x = side (-1 / 1), position.y = 0 at the tail and 1 at the head.
+
 const vertexShader = /* glsl */ `
   attribute vec2 aPosition;
   attribute float aOffset;
@@ -110,13 +109,14 @@ function createStarGeometry(starCount) {
     widths[i] = isHighlight
       ? 2.5 + Math.random() * 1.5
       : 0.8 + Math.random() * 0.6;
-    brightness[i] = isHighlight
-      ? 1
-      : 0.45 + Math.pow(Math.random(), 2) * 0.55;
+    brightness[i] = isHighlight ? 1 : 0.45 + Math.pow(Math.random(), 2) * 0.55;
     lengths[i] = isHighlight ? 55 : 12 + Math.random() * 24;
   }
 
-  geometry.setAttribute("aPosition", new InstancedBufferAttribute(positions, 2));
+  geometry.setAttribute(
+    "aPosition",
+    new InstancedBufferAttribute(positions, 2),
+  );
   geometry.setAttribute("aOffset", new InstancedBufferAttribute(offsets, 1));
   geometry.setAttribute("aSpeed", new InstancedBufferAttribute(speeds, 1));
   geometry.setAttribute("aLength", new InstancedBufferAttribute(lengths, 1));
@@ -219,10 +219,7 @@ export function createWarpScene(canvas) {
     const speed = getSpeed(delta);
 
     uniforms.uTravel.value += delta * speed;
-    uniforms.uStretch.value = Math.min(
-      1 + (speed / CRUISE_SPEED - 1) * 0.6,
-      7,
-    );
+    uniforms.uStretch.value = Math.min(1 + (speed / CRUISE_SPEED - 1) * 0.6, 7);
     camera.rotation.y += (-pointer.x * 0.12 - camera.rotation.y) * 0.04;
     camera.rotation.x += (-pointer.y * 0.08 - camera.rotation.x) * 0.04;
 
