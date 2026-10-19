@@ -82,7 +82,7 @@ function Hero() {
 
       <div className="hero-content">
         <p className="hero-label">
-          {isEnglish ? "WEB DEVELOPER" : "DESENVOLVEDOR WEB"}
+          {isEnglish ? "FULLSTACK DEVELOPER" : "DESENVOLVEDOR FULLSTACK"}
         </p>
 
         <div className="hero-console" aria-hidden="true">
@@ -111,9 +111,19 @@ function Hero() {
         </h1>
 
         <p className="hero-description">
-          {isEnglish
-            ? "Web Developer focused on creating modern, functional and visually striking digital experiences. I combine development, design and technology to turn ideas into intuitive, efficient solutions."
-            : "Desenvolvedor Web focado na criação de experiências digitais modernas, funcionais e visualmente marcantes. Busco combinar desenvolvimento, design e tecnologia para transformar ideias em soluções intuitivas, eficientes e alinhadas às necessidades de cada projeto."}
+          {isEnglish ? (
+            "Fullstack Developer focused on creating modern, functional and visually striking digital experiences, from front end to back end. I combine development, design and technology to turn ideas into intuitive, efficient solutions."
+          ) : (
+            <>
+              Desenvolvedor Fullstack focado na criação de experiências digitais
+              modernas, funcionais e visualmente marcantes, do{" "}
+              <span className="no-wrap">front-end</span> ao{" "}
+              <span className="no-wrap">back-end</span>. Busco combinar
+              desenvolvimento, design e tecnologia para transformar ideias em
+              soluções intuitivas, eficientes e alinhadas às necessidades de
+              cada projeto.
+            </>
+          )}
         </p>
 
         <div

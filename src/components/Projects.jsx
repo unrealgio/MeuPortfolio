@@ -63,8 +63,8 @@ const projects = (isEnglish) => [
       : "Projeto pessoal · Em desenvolvimento",
     inProgress: true,
     description: isEnglish
-      ? "A gamified habit app with a stoic theme: every completed habit sculpts your marble statue, and every miss leaves cracks that only consistency can restore. With four virtue archetypes and chained routines, it is also my TypeScript and full stack architecture lab: a monorepo with shared, tested game rules, JWT authentication and PostgreSQL with Drizzle ORM."
-      : "App de hábitos gamificado com tema estoico: cada hábito cumprido esculpe sua estátua de mármore, e cada falha deixa rachaduras que só a constância restaura. Com quatro arquétipos de virtude e rotinas encadeadas, é também meu laboratório de TypeScript e arquitetura full stack: monorepo com regras de jogo compartilhadas e testadas, autenticação com JWT e PostgreSQL com Drizzle ORM.",
+      ? "A gamified habit app with a stoic theme: every completed habit sculpts your marble statue, and every miss leaves cracks that only consistency can restore. With four virtue archetypes and chained routines, it is also my TypeScript and fullstack architecture lab: a monorepo with shared, tested game rules, JWT authentication and PostgreSQL with Drizzle ORM."
+      : "App de hábitos gamificado com tema estoico: cada hábito cumprido esculpe sua estátua de mármore, e cada falha deixa rachaduras que só a constância restaura. Com quatro arquétipos de virtude e rotinas encadeadas, é também meu laboratório de TypeScript e arquitetura fullstack: monorepo com regras de jogo compartilhadas e testadas, autenticação com JWT e PostgreSQL com Drizzle ORM.",
     technologies: [
       "TypeScript",
       "React",
@@ -105,8 +105,8 @@ function Projects() {
           </div>
           <p className="projects-intro">
             {isEnglish
-              ? "A selection of full stack systems created for real academic and professional contexts. Each project combines product thinking, reliable architecture and clear interfaces to turn complex routines into practical digital experiences."
-              : "Uma seleção de sistemas full stack criados para contextos acadêmicos e profissionais reais. Cada projeto combina visão de produto, arquitetura confiável e interfaces claras para transformar rotinas complexas em experiências digitais práticas e eficientes."}
+              ? "A selection of fullstack systems created for real academic and professional contexts. Each project combines product thinking, reliable architecture and clear interfaces to turn complex routines into practical digital experiences."
+              : "Uma seleção de sistemas fullstack criados para contextos acadêmicos e profissionais reais. Cada projeto combina visão de produto, arquitetura confiável e interfaces claras para transformar rotinas complexas em experiências digitais práticas e eficientes."}
           </p>
         </div>
 

@@ -28,8 +28,8 @@ const experiences = [
   {
     period: { pt: "Jan 2024 - Dez 2025", en: "Jan 2024 - Dec 2025" },
     role: {
-      pt: "Desenvolvedor Web Full Stack",
-      en: "Full Stack Web Developer",
+      pt: "Desenvolvedor Fullstack",
+      en: "Fullstack Developer",
     },
     company: "Digital Boost",
     description: {
@@ -48,7 +48,10 @@ const experiences = [
   },
   {
     period: { pt: "Jun 2023 - atualmente", en: "Jun 2023 - present" },
-    role: { pt: "Desenvolvedor Web Freelancer", en: "Freelance Web Developer" },
+    role: {
+      pt: "Desenvolvedor Fullstack Freelancer",
+      en: "Freelance Fullstack Developer",
+    },
     description: {
       pt: "Atendo clientes diretamente, do primeiro briefing ao deploy: entendo as necessidades do negócio, proponho a solução, desenho as interfaces e construo a aplicação completa, do front-end às APIs e ao banco de dados. Também cuido da publicação e dos ajustes depois da entrega, com uma comunicação próxima para que o resultado final reflita a visão de cada cliente.",
       en: "I work directly with clients, from the first briefing to deployment: I understand the business needs, propose the solution, design the interfaces and build the complete application, from front end to APIs and database. I also handle publishing and post-launch adjustments, keeping close communication so the final result reflects each client's vision.",
@@ -188,7 +191,7 @@ const technologyGroups = [
   },
 ];
 
-// ESTATISTICAS 
+// ESTATISTICAS
 
 const prefersReducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -396,8 +399,8 @@ function About() {
             <div className="about-content">
               <p className="about-lead">
                 {isEnglish
-                  ? "Full stack developer turning ideas into clear, functional digital products."
-                  : "Desenvolvedor full stack que transforma ideias em produtos digitais claros e funcionais."}
+                  ? "Fullstack developer turning ideas into clear, functional digital products."
+                  : "Desenvolvedor fullstack que transforma ideias em produtos digitais claros e funcionais."}
               </p>
               <p className="about-text">
                 {isEnglish
