@@ -15,7 +15,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
 }
 
 body {
@@ -148,7 +147,6 @@ a {
 /* ABOUT SECTION */
 .about-section {
   position: relative;
-  scroll-margin-top: 5rem;
   display: grid;
   gap: clamp(5rem, 10vw, 9rem);
   padding: clamp(5rem, 10vw, 9rem) clamp(2rem, 6vw, 7rem);
@@ -401,6 +399,8 @@ a {
 
 .about-block {
   min-width: 0;
+  /* Inner blocks have no top padding, so keep them clear of the fixed navbar */
+  scroll-margin-top: 6rem;
 }
 
 .block-heading {

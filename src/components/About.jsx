@@ -264,7 +264,7 @@ function About() {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { rootMargin: "0px 0px -15% 0px" },
     );
 
     if (aboutRef.current) {
