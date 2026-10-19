@@ -7,8 +7,9 @@ import HeroBackground from "./HeroBackground";
 const Stack = {
   frontend: ["React", "Next.js", "TailwindCSS"],
   backend: ["Node.js", "Express"],
-  database: ["PostgreSQL", "MongoDB", "SQL Server"],
-  tools: ["Git", "Docker", "Vite"],
+  database: ["PostgreSQL", "MongoDB", "Supabase"],
+  desktop: ["Electron"],
+  tools: ["Git", "Docker", "Vite", "Vitest"],
 };
 
 const socialLinks = [
@@ -186,13 +187,18 @@ function Hero() {
           <p className="indent">
             <span className="green">role:</span>{" "}
             <span className="orange">
-              &quot;{isEnglish ? "Web Developer" : "Desenvolvedor Web"}&quot;
+              &quot;
+              {isEnglish ? "Fullstack Developer" : "Desenvolvedor Fullstack"}
+              &quot;
             </span>
             ,
           </p>
           <p className="indent">
             <span className="green">experience:</span>{" "}
-            <span className="orange">&quot;+3 anos&quot;</span>,
+            <span className="orange">
+              &quot;{isEnglish ? "3+ years" : "+3 anos"}&quot;
+            </span>
+            ,
           </p>
           <p className="indent">
             <span className="green">location:</span>{" "}
@@ -227,7 +233,7 @@ function Hero() {
       </section>
 
       <a className="meet-link" href="#sobre">
-        <span>{isEnglish ? "Click to meet" : "Conheça meu trabalho"}</span>
+        <span>{isEnglish ? "See my work" : "Conheça meu trabalho"}</span>
         <ArrowDown size={17} strokeWidth={1.8} aria-hidden="true" />
       </a>
     </main>

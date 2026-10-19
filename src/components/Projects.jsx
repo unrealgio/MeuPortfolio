@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
 
@@ -6,7 +6,7 @@ const projects = (isEnglish) => [
   {
     number: "01",
     name: "CIS UNP",
-    image: "/img/CIS.png",
+    image: "/img/cis-unp.webp",
     eyebrow: isEnglish
       ? "Scientific research · INPI registration"
       : "Iniciação científica · Registro INPI",
@@ -31,7 +31,7 @@ const projects = (isEnglish) => [
   {
     number: "02",
     name: "Class Manager",
-    image: "/img/GERENCIADOR%20DE%20TURMAS.jpeg",
+    image: "/img/class-manager.webp",
     eyebrow: isEnglish
       ? "Training project · Senac RN"
       : "Projeto de formação · Senac RN",
@@ -54,6 +54,32 @@ const projects = (isEnglish) => [
     ],
     href: "https://github.com/unrealgio/Class_Manager",
   },
+  {
+    number: "03",
+    name: "Habithos",
+    image: "/img/habithos.webp",
+    eyebrow: isEnglish
+      ? "Personal project · In development"
+      : "Projeto pessoal · Em desenvolvimento",
+    inProgress: true,
+    description: isEnglish
+      ? "A gamified habit app with a stoic theme: every completed habit sculpts your marble statue, and every miss leaves cracks that only consistency can restore. With four virtue archetypes and chained routines, it is also my TypeScript and full stack architecture lab: a monorepo with shared, tested game rules, JWT authentication and PostgreSQL with Drizzle ORM."
+      : "App de hábitos gamificado com tema estoico: cada hábito cumprido esculpe sua estátua de mármore, e cada falha deixa rachaduras que só a constância restaura. Com quatro arquétipos de virtude e rotinas encadeadas, é também meu laboratório de TypeScript e arquitetura full stack: monorepo com regras de jogo compartilhadas e testadas, autenticação com JWT e PostgreSQL com Drizzle ORM.",
+    technologies: [
+      "TypeScript",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Docker",
+      "Vitest",
+    ],
+
+    href: null,
+  },
 ];
 
 function Projects() {
@@ -69,7 +95,7 @@ function Projects() {
         <div className="section-intro">
           <div>
             <p className="section-label">
-              | {isEnglish ? "SELECTED PROJECTS" : "PROJETOS SELECIONADOS"}
+              {isEnglish ? "SELECTED PROJECTS" : "PROJETOS SELECIONADOS"}
             </p>
             <h2 id="projects-title">
               {isEnglish
@@ -85,58 +111,192 @@ function Projects() {
         </div>
 
         <div className="projects-list">
-          {translatedProjects.map((project) => (
-            <article className="project-item" key={project.name}>
-              <a
-                className="project-image-link"
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={
+          {translatedProjects.map((project) => {
+            const image = (
+              <img
+                className="project-image"
+                src={project.image}
+                alt={
                   isEnglish
-                    ? `Open ${project.name} project`
-                    : `Abrir projeto ${project.name}`
+                    ? `Preview of ${project.name}`
+                    : `Prévia do projeto ${project.name}`
                 }
-              >
-                <img
-                  className="project-image"
-                  src={project.image}
-                  alt={
-                    isEnglish
-                      ? `Preview of ${project.name}`
-                      : `Prévia do projeto ${project.name}`
-                  }
-                />
-              </a>
-              <span className="project-number">{project.number}</span>
-              <div className="project-info">
-                {project.eyebrow && (
-                  <p className="project-eyebrow">{project.eyebrow}</p>
+                loading="lazy"
+                decoding="async"
+              />
+            );
+
+            return (
+              <article className="project-item" key={project.name}>
+                {project.href ? (
+                  <a
+                    className="project-image-link"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={
+                      isEnglish
+                        ? `Open ${project.name} project`
+                        : `Abrir projeto ${project.name}`
+                    }
+                  >
+                    {image}
+                  </a>
+                ) : (
+                  <div className="project-image-link">
+                    {image}
+                    {project.inProgress && (
+                      <span className="project-status">
+                        <span
+                          className="project-status-dot"
+                          aria-hidden="true"
+                        />
+                        {isEnglish ? "In development" : "Em desenvolvimento"}
+                      </span>
+                    )}
+                  </div>
                 )}
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-                <div className="project-tags">
-                  {project.technologies.map((technology) => (
-                    <span key={technology}>{technology}</span>
-                  ))}
+                <span className="project-number">{project.number}</span>
+                <div className="project-info">
+                  {project.eyebrow && (
+                    <p className="project-eyebrow">{project.eyebrow}</p>
+                  )}
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <div className="project-tags">
+                    {project.technologies.map((technology) => (
+                      <span key={technology}>{technology}</span>
+                    ))}
+                  </div>
                 </div>
+                {project.href ? (
+                  <a
+                    className="project-link"
+                    href={project.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={
+                      isEnglish
+                        ? `Open ${project.name} on GitHub`
+                        : `Abrir projeto ${project.name} no GitHub`
+                    }
+                  >
+                    <FaGithub size={18} aria-hidden="true" />
+                    <ArrowUpRight size={18} aria-hidden="true" />
+                  </a>
+                ) : (
+                  <span className="project-soon">
+                    <FaGithub size={14} aria-hidden="true" />
+                    {isEnglish
+                      ? "Repository coming soon"
+                      : "Repositório em breve"}
+                  </span>
+                )}
+              </article>
+            );
+          })}
+
+          <article className="project-item project-cta">
+            <a
+              className="project-image-link project-cta-visual"
+              href="#contato"
+              aria-label={
+                isEnglish
+                  ? "Go to the contact section"
+                  : "Ir para a seção de contato"
+              }
+            >
+              <div className="code-block" aria-hidden="true">
+                <p>
+                  <span className="purple">const</span>{" "}
+                  <span className="blue">nextProject</span> = {"{"}
+                </p>
+                <p className="indent">
+                  <span className="green">client:</span>{" "}
+                  <span className="orange">
+                    &quot;{isEnglish ? "you" : "você"}&quot;
+                  </span>
+                  ,
+                </p>
+                <p className="indent">
+                  <span className="green">idea:</span>{" "}
+                  <span className="orange">
+                    &quot;{isEnglish ? "your idea" : "sua ideia"}&quot;
+                  </span>
+                  ,
+                </p>
+                <p className="indent">
+                  <span className="green">status:</span>{" "}
+                  <span className="yellow">
+                    &quot;{isEnglish ? "waiting for you" : "esperando por você"}
+                    &quot;
+                  </span>
+                  ,
+                </p>
+                <p>
+                  {"}"}
+                  <span className="project-cta-cursor" />
+                </p>
               </div>
-              <a
-                className="project-link"
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={
-                  isEnglish
-                    ? `Open ${project.name} on GitHub`
-                    : `Abrir projeto ${project.name} no GitHub`
-                }
-              >
-                <FaGithub size={18} aria-hidden="true" />
-                <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+            <span className="project-number">
+              {String(translatedProjects.length + 1).padStart(2, "0")}
+            </span>
+            <div className="project-info">
+              <p className="project-eyebrow">
+                {isEnglish
+                  ? "Next project · Open for work"
+                  : "Próximo projeto · Agenda aberta"}
+              </p>
+              <h3>
+                {isEnglish
+                  ? "Your project could be here!"
+                  : "Seu projeto pode aparecer aqui!"}
+              </h3>
+              <p>
+                {isEnglish
+                  ? "Have an idea, a process that needs to leave the spreadsheet or a product ready to come to life? Let's talk and turn it into the next project on this list, from planning to deployment."
+                  : "Tem uma ideia, um processo que precisa sair da planilha ou um produto pronto para ganhar vida? Vamos conversar e transformar isso no próximo projeto desta lista, do planejamento ao deploy."}
+              </p>
+              <div className="project-tags">
+                {(isEnglish
+                  ? [
+                      "Websites",
+                      "Web systems",
+                      "Dashboards",
+                      "APIs",
+                      "Landing pages",
+                      "Apps",
+                    ]
+                  : [
+                      "Sites",
+                      "Sistemas web",
+                      "Dashboards",
+                      "APIs",
+                      "Landing pages",
+                      "Aplicativos",
+                    ]
+                ).map((service) => (
+                  <span key={service}>{service}</span>
+                ))}
+              </div>
+              <a className="resume-link project-cta-button" href="#contato">
+                <MessageCircle size={18} aria-hidden="true" />
+                <span>{isEnglish ? "Let's talk" : "Vamos conversar"}</span>
               </a>
-            </article>
-          ))}
+            </div>
+            <a
+              className="project-link"
+              href="#contato"
+              aria-label={
+                isEnglish
+                  ? "Start a project with me"
+                  : "Começar um projeto comigo"
+              }
+            >
+              <ArrowUpRight size={18} aria-hidden="true" />
+            </a>
+          </article>
         </div>
       </div>
     </section>
