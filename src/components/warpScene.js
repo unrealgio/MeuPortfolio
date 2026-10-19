@@ -20,7 +20,6 @@ const INTRO_MULTIPLIER = 8;
 const HIGHLIGHT_RATIO = 0.015;
 const REDUCED_MOTION_TRAVEL = 420;
 
-
 const vertexShader = /* glsl */ `
   attribute vec2 aPosition;
   attribute float aOffset;
