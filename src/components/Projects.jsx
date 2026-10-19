@@ -36,8 +36,8 @@ const projects = (isEnglish) => [
       ? "Training project · Senac RN"
       : "Projeto de formação · Senac RN",
     description: isEnglish
-      ? "Web system developed during Senac RN's Full Stack Web Developer course to centralize school management. It supports teacher and student authentication, class organization, grade and attendance tracking, and PDF report cards through an administrative panel."
-      : "Sistema web desenvolvido durante o curso Full Stack Web Developer do Senac RN para centralizar a gestão escolar. A plataforma permite cadastrar e autenticar professores e alunos, organizar turmas, controlar notas e frequência e gerar boletins em PDF por meio de um painel administrativo.",
+      ? "School management web system built during Senac RN's Fullstack Programming course. Teachers and students get secure sign-up and login with JWT and Bcrypt, and the platform organizes classes, tracks grades and attendance and issues PDF report cards. Teachers have an exclusive admin panel to view classes, edit academic records and check cycles, with an interface designed to simplify the school's routine."
+      : "Sistema web de gestão escolar desenvolvido no curso de Programação Fullstack do Senac RN. Professores e alunos têm cadastro e login seguros, com JWT e Bcrypt, e a plataforma organiza turmas, controla notas e frequência e emite boletins em PDF. Os professores contam com um painel administrativo exclusivo para visualizar turmas, editar dados acadêmicos e consultar ciclos, com uma interface pensada para simplificar a rotina da escola.",
     technologies: [
       "JavaScript",
       "React",

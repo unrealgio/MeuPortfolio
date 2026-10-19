@@ -7,7 +7,7 @@ import HeroBackground from "./HeroBackground";
 const Stack = {
   frontend: ["React", "Next.js", "TailwindCSS"],
   backend: ["Node.js", "Express"],
-  database: ["PostgreSQL", "MongoDB", "Supabase"],
+  database: ["PostgreSQL", "MongoDB", "MySQL"],
   desktop: ["Electron"],
   tools: ["Git", "Docker", "Vite", "Vitest"],
 };

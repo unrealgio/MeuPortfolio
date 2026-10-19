@@ -14,9 +14,9 @@ import {
   SiExpress,
   SiJira,
   SiMongodb,
+  SiMysql,
   SiNextdotjs,
   SiPostgresql,
-  SiSupabase,
   SiTailwindcss,
   SiTypescript,
   SiVitest,
@@ -46,16 +46,15 @@ const experiences = [
     },
     company: "Digital Boost",
     description: {
-      pt: "Integrei o time de produto da Digital Boost desenvolvendo funcionalidades de ponta a ponta com React, Node.js e TypeScript, sobre bancos MongoDB. Escrevi testes automatizados com Vitest para entregar com segurança e padronizei ambientes com Docker. No dia a dia, organizava as tarefas no Jira em ciclos ágeis, alinhava requisitos com o time e participava de revisões de código, um ambiente em que desenvolvi comunicação clara, colaboração e autonomia para resolver problemas.",
-      en: "I was part of Digital Boost's product team, building end-to-end features with React, Node.js and TypeScript on top of MongoDB. I wrote automated tests with Vitest to ship with confidence and standardized environments with Docker. Day to day, I managed tasks in Jira through agile cycles, aligned requirements with the team and took part in code reviews, an environment where I sharpened clear communication, collaboration and the autonomy to solve problems.",
+      pt: "Integrei o time de produto da Digital Boost desenvolvendo funcionalidades de ponta a ponta: interfaces em React com TypeScript e JavaScript no front-end, APIs em Node.js no back-end e dados no SQL Server. No dia a dia, organizava as entregas no Jira em ciclos ágeis, alinhava requisitos com o time e participava de revisões de código, um ambiente em que desenvolvi comunicação clara, colaboração e autonomia para resolver problemas.",
+      en: "I was part of Digital Boost's product team, building end-to-end features: React interfaces with TypeScript and JavaScript on the front end, Node.js APIs on the back end and data in SQL Server. Day to day, I organized deliveries in Jira through agile cycles, aligned requirements with the team and took part in code reviews, an environment where I sharpened clear communication, collaboration and the autonomy to solve problems.",
     },
     technologies: [
       "React",
       "Node.js",
       "TypeScript",
-      "MongoDB",
-      "Docker",
-      "Vitest",
+      "JavaScript",
+      "SQL Server",
       "Jira",
     ],
   },
@@ -70,6 +69,20 @@ const experiences = [
       pt: "Atendo clientes diretamente, do primeiro briefing ao deploy: entendo as necessidades do negócio, proponho a solução, desenho as interfaces e construo a aplicação completa, do front-end às APIs e ao banco de dados. Também cuido da publicação e dos ajustes depois da entrega, com uma comunicação próxima para que o resultado final reflita a visão de cada cliente.",
       en: "I work directly with clients, from the first briefing to deployment: I understand the business needs, propose the solution, design the interfaces and build the complete application, from front end to APIs and database. I also handle publishing and post-launch adjustments, keeping close communication so the final result reflects each client's vision.",
     },
+    technologies: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Electron",
+      "Figma",
+    ],
   },
 ];
 
@@ -187,7 +200,7 @@ const technologyGroups = [
       { name: "PostgreSQL", icon: SiPostgresql },
       { name: "MongoDB", icon: SiMongodb },
       { name: "SQL Server", icon: Database },
-      { name: "Supabase", icon: SiSupabase },
+      { name: "MySQL", icon: SiMysql },
       { name: "Git", icon: FaGitAlt },
       { name: "Docker", icon: FaDocker },
       { name: "Vitest", icon: SiVitest },
@@ -414,13 +427,13 @@ function About() {
               </p>
               <p className="about-text">
                 {isEnglish
-                  ? "I started freelancing in 2023, then joined Digital Boost's product team, and I keep working with clients while studying Systems Analysis and Development at Universidade Potiguar, graduating in August 2027. That is where I built CIS UNP, a clinical management system registered with INPI."
-                  : "Comecei em 2023 como freelancer, passei pelo time de produto da Digital Boost e sigo atendendo clientes enquanto curso Análise e Desenvolvimento de Sistemas na Universidade Potiguar, com formatura prevista para agosto de 2027. Foi lá que desenvolvi o CIS UNP, um sistema de gestão clínica registrado no INPI."}
+                  ? "I started freelancing in 2023, then joined Digital Boost's product team, and I keep working with clients while studying Systems Analysis and Development at Universidade Potiguar, graduating in August 2027. That is where I built CIS UNP System, a clinical management system registered with INPI."
+                  : "Comecei em 2023 como freelancer, passei pelo time de produto da Digital Boost e sigo atendendo clientes enquanto curso Análise e Desenvolvimento de Sistemas na Universidade Potiguar, com formatura prevista para agosto de 2027. Foi lá que desenvolvi o sistema CIS UNP, um sistema de gestão clínica registrado no INPI."}
               </p>
               <p className="about-text">
                 {isEnglish
-                  ? "Day to day I work with React, Node.js and TypeScript, and I care about the details that make a difference: performance, accessibility and interfaces with personality, like the three.js animation that opens this portfolio."
-                  : "No dia a dia trabalho com React, Node.js e TypeScript, e gosto de cuidar dos detalhes que fazem diferença: performance, acessibilidade e interfaces com personalidade, como a animação em three.js que abre este portfólio."}
+                  ? "Day to day I work with React, Node.js and TypeScript, and I care about the details that make a difference: performance, accessibility and interfaces with personality."
+                  : "No dia a dia trabalho com React, Node.js e TypeScript, e gosto de cuidar dos detalhes que fazem diferença: performance, acessibilidade e interfaces com personalidade."}
               </p>
             </div>
           </div>
