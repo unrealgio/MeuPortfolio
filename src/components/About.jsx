@@ -97,6 +97,13 @@ const certificates = [
     file: "Programação Fullstack Senac.pdf",
   },
   {
+    title: "JavaScript Essentials 1",
+    issuer: "Cisco Networking Academy",
+    hours: 60,
+    completedAt: "2024-09",
+    file: "JavaScript_Essentials_1_Badge20240930-7-jol5ek (2).pdf",
+  },
+  {
     title: "Ambientes Computacionais e Conectividade",
     issuer: "Universidade Potiguar + Cisco",
     hours: 160,
@@ -109,13 +116,6 @@ const certificates = [
     hours: 160,
     completedAt: "2026-07",
     file: "Interação Humano Computador e UX.pdf",
-  },
-  {
-    title: "JavaScript Essentials 1",
-    issuer: "Cisco Networking Academy",
-    hours: 60,
-    completedAt: "2024-09",
-    file: "JavaScript_Essentials_1_Badge20240930-7-jol5ek (2).pdf",
   },
   {
     title: "Matemática Computacional Aplicada",
