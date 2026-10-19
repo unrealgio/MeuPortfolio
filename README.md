@@ -1,8 +1,10 @@
 # Meu Portfólio
 
-> Portfólio pessoal desenvolvido para apresentar minha experiência, projetos, habilidades e trajetória como Full Stack Web Developer.
+> Portfólio pessoal desenvolvido para apresentar minha experiência, projetos, habilidades e trajetória como desenvolvedor fullstack.
 
 **🔗 Acesse:** [giovanni-felipe-dev.vercel.app](https://giovanni-felipe-dev.vercel.app/)
+
+![Prévia do portfólio](public/og-image.png)
 
 ## Sobre o projeto
 
