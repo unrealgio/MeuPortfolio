@@ -23,10 +23,23 @@ import {
 } from "react-icons/si";
 import { useLanguage } from "../context/LanguageContext";
 
+function formatMonthYear(value, language) {
+  const [year, month] = value.split("-").map(Number);
+  const parts = new Intl.DateTimeFormat(language === "en" ? "en-US" : "pt-BR", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).formatToParts(new Date(Date.UTC(year, month - 1)));
+  const part = (type) => parts.find((item) => item.type === type).value;
+
+  return `${part("month")} ${part("year")}`;
+}
+
 // EXPERIÊNCIA PROFISSIONAL
 const experiences = [
   {
-    period: { pt: "Jan 2024 - Dez 2025", en: "Jan 2024 - Dec 2025" },
+    start: "2024-01",
+    end: "2025-12",
     role: {
       pt: "Desenvolvedor Fullstack",
       en: "Fullstack Developer",
@@ -47,7 +60,8 @@ const experiences = [
     ],
   },
   {
-    period: { pt: "Jun 2023 - atualmente", en: "Jun 2023 - present" },
+    start: "2023-06",
+    end: null,
     role: {
       pt: "Desenvolvedor Fullstack Freelancer",
       en: "Freelance Fullstack Developer",
@@ -65,49 +79,57 @@ const certificates = [
   {
     title: "Programador Full Stack",
     issuer: "Senac RN",
-    duration: "388 horas · concluído em Janeiro de 2025",
+    hours: 388,
+    completedAt: "2025-01",
     file: "Programação Fullstack Senac.pdf",
   },
   {
     title: "Ambientes Computacionais e Conectividade",
     issuer: "Universidade Potiguar + Cisco",
-    duration: "160 horas · concluído em Dezembro de 2025",
+    hours: 160,
+    completedAt: "2025-12",
     file: "Ambientes Computacionais e Conectividade.pdf",
   },
   {
     title: "Interação Humano Computador e UX",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em Julho de 2026",
+    hours: 160,
+    completedAt: "2026-07",
     file: "Interação Humano Computador e UX.pdf",
   },
   {
     title: "JavaScript Essentials 1",
     issuer: "Cisco Networking Academy",
-    duration: "60 horas · concluído em Setembro de 2024",
+    hours: 60,
+    completedAt: "2024-09",
     file: "JavaScript_Essentials_1_Badge20240930-7-jol5ek (2).pdf",
   },
   {
     title: "Matemática Computacional Aplicada",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em Julho de 2026",
+    hours: 160,
+    completedAt: "2026-07",
     file: "Matemática Computacional Aplicada.pdf",
   },
   {
     title: "Modelagem de Software",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em Julho de 2025",
+    hours: 160,
+    completedAt: "2025-07",
     file: "Modelagem de Software.pdf",
   },
   {
     title: "Programação de Soluções Computacionais",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em Julho de 2025",
+    hours: 160,
+    completedAt: "2025-07",
     file: "Programação de Soluções Computacionais.pdf",
   },
   {
     title: "Sistemas Computacionais e Segurança",
     issuer: "Universidade Potiguar",
-    duration: "160 horas · concluído em Dezembro de 2025",
+    hours: 160,
+    completedAt: "2025-12",
     file: "Sistemas Computacionais e Segurança.pdf",
   },
 ];
@@ -120,32 +142,6 @@ const certificatePages = certificates.reduce((pages, certificate, index) => {
 }, []);
 
 // TRADUÇÃO DOS CERTIFICADOS
-function certificateDuration(duration, isEnglish) {
-  if (!isEnglish) return duration;
-
-  const monthTranslations = {
-    Janeiro: "January",
-    Fevereiro: "February",
-    Março: "March",
-    Abril: "April",
-    Maio: "May",
-    Junho: "June",
-    Julho: "July",
-    Agosto: "August",
-    Setembro: "September",
-    Outubro: "October",
-    Novembro: "November",
-    Dezembro: "December",
-  };
-
-  return duration
-    .replace(" de ", " ")
-    .replace(
-      /horas · concluído em|Janeiro|Fevereiro|Março|Abril|Maio|Junho|Julho|Agosto|Setembro|Outubro|Novembro|Dezembro/g,
-      (text) => monthTranslations[text] || "hours · completed in",
-    );
-}
-
 const certificateTitlesInEnglish = {
   "Programador Full Stack": "Full Stack Programmer",
   "Ambientes Computacionais e Conectividade":
@@ -447,7 +443,12 @@ function About() {
                 {experiences.map((experience) => (
                   <article className="experience-item" key={experience.role.pt}>
                     <p className="experience-period">
-                      {experience.period[language]}
+                      {formatMonthYear(experience.start, language)} –{" "}
+                      {experience.end
+                        ? formatMonthYear(experience.end, language)
+                        : isEnglish
+                          ? "present"
+                          : "atualmente"}
                     </p>
                     <div>
                       <h4>{experience.role[language]}</h4>
@@ -553,10 +554,18 @@ function About() {
                           </h4>
                           <p>{certificate.issuer}</p>
                           <p>
-                            {certificateDuration(
-                              certificate.duration,
-                              isEnglish,
-                            )}
+                            <span className="no-wrap">
+                              {certificate.hours}{" "}
+                              {isEnglish ? "hours" : "horas"}
+                            </span>
+                            {" · "}
+                            {isEnglish ? "completed" : "concluído em"}{" "}
+                            <span className="no-wrap">
+                              {formatMonthYear(
+                                certificate.completedAt,
+                                language,
+                              )}
+                            </span>
                           </p>
                           <a
                             className="certificate-link"
