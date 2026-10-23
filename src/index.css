@@ -478,7 +478,7 @@ a {
 
 .carousel-counter {
   margin-right: 0.35rem;
-  color: #737373;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.75rem;
   letter-spacing: 0.08em;
@@ -576,7 +576,7 @@ a {
 .certificate-card p,
 .carousel-hint {
   margin: 0.35rem 1rem 0;
-  color: #737373;
+  color: #8c8c8c;
   font-size: 0.75rem;
 }
 
@@ -626,7 +626,7 @@ a {
 }
 
 .technology-group-label {
-  color: #737373;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -846,7 +846,7 @@ a {
   padding: 0.35rem 0.55rem;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 999px;
-  color: #737373;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.7rem;
 }
@@ -1071,11 +1071,11 @@ a.contact-card:focus-visible,
 }
 
 .contact-card-top svg:last-child {
-  color: #737373;
+  color: #8c8c8c;
 }
 
 .contact-card-label {
-  color: #737373;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.72rem;
   letter-spacing: 0.08em;
@@ -1125,7 +1125,7 @@ a.contact-card-value:focus-visible {
   margin-top: clamp(4rem, 8vw, 7rem);
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #666;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.72rem;
 }
@@ -1433,7 +1433,7 @@ a.contact-card-value:focus-visible {
   justify-content: space-between;
   padding-bottom: 1.1rem;
   border-bottom: 1px solid #303030;
-  color: #737373;
+  color: #8c8c8c;
   font-family: monospace;
   font-size: 0.72rem;
   letter-spacing: 0.02em;
@@ -1474,7 +1474,7 @@ a.contact-card-value:focus-visible {
 }
 
 .file-type {
-  color: #666;
+  color: #8c8c8c;
 }
 
 .code-block {
