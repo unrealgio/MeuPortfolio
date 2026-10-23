@@ -1,6 +1,8 @@
-import { ArrowUpRight, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, MessageCircle, Play } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { useLanguage } from "../context/LanguageContext";
+import ProjectDemoModal from "./ProjectDemoModal";
 
 const projects = (isEnglish) => [
   {
@@ -27,6 +29,7 @@ const projects = (isEnglish) => [
       "Jimp",
     ],
     href: "https://github.com/unrealgio/CISUNP",
+    demo: "/videos/cis-unp-demo.mp4",
   },
   {
     number: "02",
@@ -84,6 +87,7 @@ const projects = (isEnglish) => [
 
 function Projects() {
   const { isEnglish } = useLanguage();
+  const [demoProject, setDemoProject] = useState(null);
   const translatedProjects = projects(isEnglish);
   return (
     <section
@@ -128,7 +132,23 @@ function Projects() {
 
             return (
               <article className="project-item" key={project.name}>
-                {project.href ? (
+                {project.demo ? (
+                  <button
+                    type="button"
+                    className="project-image-link project-demo-trigger"
+                    onClick={() => setDemoProject(project)}
+                    aria-label={
+                      isEnglish
+                        ? `Watch ${project.name} demo`
+                        : `Ver demonstração do ${project.name}`
+                    }
+                  >
+                    {image}
+                    <span className="project-demo-play" aria-hidden="true">
+                      <Play size={24} />
+                    </span>
+                  </button>
+                ) : project.href ? (
                   <a
                     className="project-image-link"
                     href={project.href}
@@ -168,6 +188,16 @@ function Projects() {
                       <span key={technology}>{technology}</span>
                     ))}
                   </div>
+                  {project.demo && (
+                    <button
+                      type="button"
+                      className="resume-link project-cta-button project-demo-button"
+                      onClick={() => setDemoProject(project)}
+                    >
+                      <Play size={18} aria-hidden="true" />
+                      <span>{isEnglish ? "Watch demo" : "Ver demo"}</span>
+                    </button>
+                  )}
                 </div>
                 {project.href ? (
                   <a
@@ -299,6 +329,12 @@ function Projects() {
           </article>
         </div>
       </div>
+      {demoProject && (
+        <ProjectDemoModal
+          project={demoProject}
+          onClose={() => setDemoProject(null)}
+        />
+      )}
     </section>
   );
 }
