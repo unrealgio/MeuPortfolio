@@ -100,7 +100,7 @@ function Projects() {
             <h2 id="projects-title">
               {isEnglish
                 ? "Real solutions for real problems."
-                : "Soluções reais para problemas reais"}
+                : "Soluções reais para problemas reais."}
             </h2>
           </div>
           <p className="projects-intro">
