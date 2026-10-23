@@ -201,7 +201,7 @@ function Projects() {
                 </div>
                 {project.href ? (
                   <a
-                    className="project-link"
+                    className="project-link project-repo-link"
                     href={project.href}
                     target="_blank"
                     rel="noreferrer"
@@ -211,8 +211,9 @@ function Projects() {
                         : `Abrir projeto ${project.name} no GitHub`
                     }
                   >
-                    <FaGithub size={18} aria-hidden="true" />
-                    <ArrowUpRight size={18} aria-hidden="true" />
+                    <FaGithub size={14} aria-hidden="true" />
+                    <span>GitHub</span>
+                    <ArrowUpRight size={14} aria-hidden="true" />
                   </a>
                 ) : (
                   <span className="project-soon">

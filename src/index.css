@@ -857,6 +857,28 @@ a {
   transform: translate(0.2rem, -0.2rem);
 }
 
+.project-repo-link {
+  gap: 0.45rem;
+  width: auto;
+  height: auto;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  color: #f5f5f5;
+  font-family: monospace;
+  font-size: 0.72rem;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.project-repo-link:hover,
+.project-repo-link:focus-visible {
+  border-color: #26b99a;
+  transform: translateY(-3px);
+}
+
 /* IN-DEVELOPMENT PROJECT */
 .project-image-link {
   position: relative;
